@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>r星每日大赛-每日挑战_比赛奖励_参赛技巧</title>
+  <meta name="description" content="r星每日大赛是玩家每日挑战与赛事资讯的聚集地。提供每日比赛任务、奖励说明、参赛技巧与玩家实测反馈，适合想快速了解规则、提升名次的玩家。">
+  <meta name="keywords" content="每日挑战任务,赛事奖励说明,参赛技巧,玩家实测,比赛规则">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Cpath d='M10 22 L16 8 L22 22' stroke='%23fbbf24' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='22' r='2' fill='%23fbbf24'/%3E%3C/svg%3E">
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+  <style>
+    /* ---------- 设计系统变量 ---------- */
+    :root {
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --surface-alt: #f1f3f9;
+      --text: #1a1e2b;
+      --text-secondary: #4b5266;
+      --text-tertiary: #6f778c;
+      --border: #e2e6ef;
+      --brand: #0f172a;
+      --brand-light: #1e293b;
+      --accent: #f59e0b;
+      --accent-soft: #fef3c7;
+      --accent-dark: #b45309;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --header-height: 64px;
+      --announce-height: 40px;
+      --sticky-offset: calc(var(--announce-height) + var(--header-height));
+      --container: 1360px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- 吸顶公告条 ---------- */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+      color: #fef3c7;
+      height: var(--announce-height);
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+    .announce-bar .container { display: flex; align-items: center; gap: 10px; width: 100%; }
+    .announce-badge {
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .announce-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ---------- 吸顶页头 ---------- */
+    .site-header {
+      position: sticky;
+      top: var(--announce-height);
+      z-index: 99;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-height);
+      box-shadow: var(--shadow-sm);
+    }
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      height: 100%;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: var(--brand);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-logo svg { width: 24px; height: 24px; }
+    .brand-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--brand);
+      white-space: nowrap;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .header-nav::-webkit-scrollbar { display: none; }
+    .header-nav a {
+      padding: 6px 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-nav a:hover { background: var(--surface-alt); color: var(--brand); }
+    .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0 12px;
+      height: 34px;
+      gap: 6px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,158,11,0.15); }
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 13px;
+      width: 130px;
+      color: var(--text);
+    }
+    .search-box input::placeholder { color: var(--text-tertiary); }
+    .search-box button { color: var(--text-tertiary); display: flex; align-items: center; }
+    .search-box button:hover { color: var(--accent-dark); }
+
+    /* ---------- 首屏 ---------- */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+      color: #fff;
+      padding: 48px 0 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; display: flex; align-items: center; gap: 48px; }
+    .hero-content { flex: 1; }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245,158,11,0.15);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(245,158,11,0.25);
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 24px;
+      border-radius: 8px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary:hover { background: #fbbf24; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.2s, border-color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.35); }
+    .hero-visual {
+      width: 340px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(245,158,11,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-stat-icon svg { width: 20px; height: 20px; stroke: var(--accent); }
+    .hero-stat-num { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .hero-stat-label { font-size: 12px; color: #94a3b8; }
+
+    /* ---------- 三栏布局 ---------- */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 240px;
+      gap: 28px;
+      padding: 32px 0 48px;
+    }
+
+    /* ---------- 左栏 ---------- */
+    .sidebar-left { display: flex; flex-direction: column; gap: 24px; }
+    .side-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .side-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .side-title::before {
+      content: '';
+      width: 3px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .channel-list { display: flex; flex-direction: column; gap: 2px; }
+    .channel-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .channel-list a:hover, .channel-list a.active { background: var(--accent-soft); color: var(--accent-dark); font-weight: 600; }
+    .channel-list a svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.7; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-cloud a {
+      font-size: 12px;
+      padding: 3px 10px;
+      background: var(--surface-alt);
+      border-radius: 20px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .tag-cloud a:hover { background: var(--accent-soft); color: var(--accent-dark); }
+    .filter-group { display: flex; flex-direction: column; gap: 6px; }
+    .filter-btn {
+      text-align: left;
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent-soft); color: var(--accent-dark); font-weight: 600; }
+
+    /* ---------- 中栏 ---------- */
+    .main-content { display: flex; flex-direction: column; gap: 32px; min-width: 0; }
+    .section-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 12px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .section-more {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .section-more:hover { color: var(--accent-dark); }
+
+    /* 内容简介 */
+    .intro-text p { margin-bottom: 14px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.8; }
+    .intro-text p:last-child { margin-bottom: 0; }
+    .intro-text strong { color: var(--brand); font-weight: 700; }
+
+    /* 热门内容推荐卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .content-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .content-card:hover { box-shadow: var(--shadow-md); border-color: #d0d6e2; transform: translateY(-2px); }
+    .card-type {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      align-self: flex-start;
+    }
+    .card-type.blue { background: #e0e7ff; color: #3730a3; }
+    .card-type.green { background: #d1fae5; color: #065f46; }
+    .card-type.purple { background: #ede9fe; color: #5b21b6; }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brand);
+      line-height: 1.4;
+    }
+    .card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .card-tags span {
+      font-size: 11px;
+      padding: 1px 7px;
+      background: var(--surface-alt);
+      border-radius: 3px;
+      color: var(--text-tertiary);
+    }
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      margin-top: 4px;
+    }
+    .card-meta span { display: flex; align-items: center; gap: 3px; }
+    .card-meta .hot { color: #dc2626; font-weight: 600; }
+
+    /* 最新更新列表 */
+    .update-list { display: flex; flex-direction: column; gap: 0; }
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-num {
+      width: 26px;
+      height: 26px;
+      background: var(--surface-alt);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .update-num.top { background: var(--accent); color: #0f172a; }
+    .update-body { flex: 1; min-width: 0; }
+    .update-name { font-size: 14px; font-weight: 600; color: var(--brand); margin-bottom: 2px; }
+    .update-summary { font-size: 12.5px; color: var(--text-tertiary); }
+    .update-time { font-size: 11px; color: var(--text-tertiary); flex-shrink: 0; white-space: nowrap; margin-top: 4px; }
+
+    /* 分类入口 */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .cat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 8px;
+      background: var(--surface-alt);
+      border-radius: var(--radius-md);
+      transition: background 0.2s, transform 0.15s;
+      text-align: center;
+    }
+    .cat-item:hover { background: var(--accent-soft); transform: translateY(-2px); }
+    .cat-icon { width: 28px; height: 28px; stroke: var(--accent-dark); }
+    .cat-name { font-size: 13px; font-weight: 600; color: var(--brand); }
+
+    /* 深度解析 */
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brand);
+      margin: 22px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .deep-dive h3:first-child { margin-top: 0; }
+    .deep-dive p { font-size: 14px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 12px; }
+    .deep-dive ul { margin: 8px 0 14px 18px; }
+    .deep-dive li { font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 4px; list-style: disc; }
+
+    /* 体验指南 */
+    .guide-steps { display: flex; flex-direction: column; gap: 14px; }
+    .guide-step {
+      display: flex;
+      gap: 14px;
+      padding: 14px;
+      background: var(--surface-alt);
+      border-radius: var(--radius-md);
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .step-body h4 { font-size: 14px; font-weight: 700; color: var(--brand); margin-bottom: 2px; }
+    .step-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--surface);
+      transition: border-color 0.2s;
+    }
+    details:hover { border-color: #d0d6e2; }
+    details[open] { border-color: var(--accent); }
+    summary {
+      padding: 13px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    details[open] summary::after { content: '−'; color: var(--accent-dark); }
+    .faq-answer { padding: 0 16px 14px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.8; }
+
+    /* 用户评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .comment-card {
+      background: var(--surface-alt);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .comment-head { display: flex; align-items: center; gap: 8px; }
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .comment-avatar.alt1 { background: #7c3aed; }
+    .comment-avatar.alt2 { background: #0891b2; }
+    .comment-avatar.alt3 { background: #b45309; }
+    .comment-avatar.alt4 { background: #15803d; }
+    .comment-avatar.alt5 { background: #be123c; }
+    .comment-name { font-size: 13px; font-weight: 600; color: var(--brand); }
+    .comment-text { font-size: 12.5px; color: var(--text-secondary); line-height: 1.7; }
+    .comment-text .neutral { color: var(--text-tertiary); font-style: italic; }
+
+    /* 相关资讯 */
+    .news-list { display: flex; flex-direction: column; gap: 0; }
+    .news-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+    .news-date { font-size: 11px; color: var(--text-tertiary); background: var(--surface-alt); padding: 1px 8px; border-radius: 3px; flex-shrink: 0; }
+    .news-title { font-size: 14px; font-weight: 600; color: var(--brand); }
+    .news-summary { font-size: 13px; color: var(--text-tertiary); line-height: 1.6; }
+
+    /* 相关推荐 */
+    .rec-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rec-tags a {
+      font-size: 13px;
+      padding: 6px 14px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text-secondary);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .rec-tags a:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-dark); }
+
+    /* 趋势观察 */
+    .trend-panel {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #e2e8f0;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .trend-title { font-size: 18px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .trend-title svg { width: 20px; height: 20px; stroke: var(--accent); }
+    .trend-bars { display: flex; flex-direction: column; gap: 12px; }
+    .trend-bar-item { display: flex; flex-direction: column; gap: 4px; }
+    .trend-bar-label { display: flex; justify-content: space-between; font-size: 13px; color: #cbd5e1; }
+    .trend-bar-label span:last-child { color: var(--accent); font-weight: 600; }
+    .trend-bar-track { height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+    .trend-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #fbbf24); border-radius: 4px; }
+
+    /* ---------- 右栏 ---------- */
+    .sidebar-right { display: flex; flex-direction: column; gap: 24px; }
+    .toc-list { display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a {
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      border-left: 2px solid transparent;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .toc-list a:hover { background: var(--surface-alt); border-left-color: var(--accent); color: var(--brand); }
+    .hot-list { display: flex; flex-direction: column; gap: 10px; }
+    .hot-item { display: flex; gap: 10px; align-items: flex-start; }
+    .hot-rank {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .hot-rank.top { background: var(--accent); color: #0f172a; }
+    .hot-text { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .hot-text strong { color: var(--brand); font-weight: 600; }
+
+    /* ---------- 页脚 ---------- */
+    .site-footer {
+      background: var(--brand);
+      color: #94a3b8;
+      padding: 40px 0 24px;
+      margin-top: 16px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .footer-brand .brand-name { color: #fff; font-size: 18px; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 8px; max-width: 320px; }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .footer-col a { display: block; font-size: 13px; padding: 3px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+    }
+    .footer-note { font-size: 11px; color: #64748b; margin-top: 12px; }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 1100px) {
+      .main-layout { grid-template-columns: 170px minmax(0, 1fr); }
+      .sidebar-right { display: none; }
+    }
+    @media (max-width: 860px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .sidebar-left { display: none; }
+      .hero .container { flex-direction: column; gap: 28px; }
+      .hero-visual { width: 100%; flex-direction: row; flex-wrap: wrap; }
+      .hero-stat { flex: 1; min-width: 140px; }
+      .hero h1 { font-size: 30px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .header-nav { display: none; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero h1 { font-size: 26px; }
+      .hero-desc { font-size: 14px; }
+      .section-block { padding: 20px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .comment-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .search-box input { width: 90px; }
+      .hero-visual { flex-direction: column; }
+    }
+    .no-result { text-align: center; padding: 24px; color: var(--text-tertiary); font-size: 14px; display: none; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  </style>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar" role="banner">
+    <div class="container">
+      <span class="announce-badge">NEW</span>
+      <span class="announce-text">本周每日大赛新增「极速竞速」模式，奖励池已更新 · 参赛技巧汇总已上线</span>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/#hero" class="brand" aria-label="r星每日大赛首页">
+        <span class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 18L12 4L18 18" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="18" r="2" fill="#fbbf24"/>
+          </svg>
+        </span>
+        <span class="brand-name">r星每日大赛</span>
+      </a>
+      <nav class="header-nav" aria-label="主题导航">
+        <a href="/#hot-recommend">热门挑战</a>
+        <a href="/#latest-updates">最新赛况</a>
+        <a href="/#categories">分类导航</a>
+        <a href="/#deep-dive">赛事解析</a>
+        <a href="/#guide">参赛指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#comments">玩家评价</a>
+        <a href="/#news">赛事资讯</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-box" role="search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="search" id="searchInput" placeholder="搜索挑战或奖励…" aria-label="搜索挑战或奖励">
+          <button id="searchClear" aria-label="清空搜索" style="display:none;">✕</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 首屏 -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          每日更新 · 实时赛况
+        </span>
+        <h1>r星每日大赛</h1>
+        <p class="hero-desc">汇集每日挑战任务、比赛奖励说明与玩家实测反馈。从竞速到生存，从个人赛到团队赛，帮你快速了解当天规则、规划参赛策略，不错过每一份奖励。</p>
+        <div class="hero-cta">
+          <a href="/#hot-recommend" class="btn-primary">
+            查看今日挑战
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/#guide" class="btn-ghost">参赛技巧</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="hero-stat-num">3 场</div>
+            <div class="hero-stat-label">今日进行中</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="hero-stat-num">¥ 5,200</div>
+            <div class="hero-stat-label">今日奖励池</div>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="hero-stat-num">1,840</div>
+            <div class="hero-stat-label">今日参与人数</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三栏主内容区 -->
+  <div class="container">
+    <div class="main-layout">
+
+      <!-- 左栏：频道导航 + 分类筛选 + 标签 -->
+      <aside class="sidebar-left" aria-label="频道与筛选">
+        <div class="side-card">
+          <div class="side-title">频道导航</div>
+          <nav class="channel-list" aria-label="内容频道">
+            <a href="/#hero" class="active">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              首页
+            </a>
+            <a href="/#hot-recommend">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              热门挑战
+            </a>
+            <a href="/#latest-updates">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              最新赛况
+            </a>
+            <a href="/#categories">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              分类导航
+            </a>
+            <a href="/#deep-dive">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              赛事解析
+            </a>
+            <a href="/#guide">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              参赛指南
+            </a>
+            <a href="/#faq">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              常见问题
+            </a>
+            <a href="/#comments">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              玩家评价
+            </a>
+          </nav>
+        </div>
+
+        <div class="side-card">
+          <div class="side-title">按类型筛选</div>
+          <div class="filter-group" id="filterGroup">
+            <button class="filter-btn active" data-filter="all">全部挑战</button>
+            <button class="filter-btn" data-filter="竞速">竞速赛</button>
+            <button class="filter-btn" data-filter="生存">生存赛</button>
+            <button class="filter-btn" data-filter="团队">团队赛</button>
+            <button class="filter-btn" data-filter="技巧">技巧赛</button>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <div class="side-title">热门标签</div>
+          <div class="tag-cloud">
+            <a href="/#hot-recommend">每日挑战任务</a>
+            <a href="/#hot-recommend">赛事奖励说明</a>
+            <a href="/#deep-dive">参赛技巧</a>
+            <a href="/#comments">玩家实测</a>
+            <a href="/#news">比赛规则</a>
+            <a href="/#categories">竞速赛</a>
+            <a href="/#categories">生存赛</a>
+            <a href="/#categories">团队赛</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 中栏：主内容 -->
+      <main class="main-content" id="main-content">
+
+        <!-- 板块1：内容简介 -->
+        <section class="section-block" id="intro">
+          <div class="section-header">
+            <h2 class="section-title">关于 r星每日大赛</h2>
+          </div>
+          <div class="intro-text">
+            <p><strong>r星每日大赛</strong>是一个围绕每日挑战与比赛活动的内容门户，面向希望快速了解当天赛事规则、奖励构成和参赛策略的玩家。无论你是刚接触每日挑战的新手，还是追求排名与效率的老玩家，这里都整理了可直接参考的赛事信息与实战经验。</p>
+            <p>每日挑战任务通常分为竞速赛、生存赛、团队赛和技巧赛四大方向。每类比赛的奖励结构、积分方式和时间限制各有不同。页面中的热门挑战推荐会标注比赛类型、奖励范围和难度等级，帮助你根据自身时间和操作习惯选择适合的场次。</p>
+            <p>赛事奖励说明部分重点拆解每日奖励池的分配逻辑，包括参与奖、排名奖和全勤奖的获取条件。参赛技巧版块则从装备配置、路线规划和团队配合三个维度，汇总了玩家实测有效的操作方法。常见问题解答贴近真实搜索问句，例如“生存赛一般持续多久”“团队赛需要几个人组队”，方便你快速定位关键规则。</p>
+            <p>如果你正在考虑“竞速赛和技巧赛哪个收益更高”，或者想了解“每日挑战任务每天几点刷新”，可以直接查看赛事解析与FAQ。页面同时提供相关资讯和玩家评价，帮助你从多个角度判断当天的参赛优先级。</p>
+          </div>
+        </section>
+
+        <!-- 板块2：热门内容推荐 -->
+        <section class="section-block" id="hot-recommend">
+          <div class="section-header">
+            <h2 class="section-title">今日热门挑战推荐</h2>
+            <a href="/#latest-updates" class="section-more">查看全部赛况 →</a>
+          </div>
+          <div class="card-grid" id="hotCardGrid">
+            <div class="content-card" data-type="竞速">
+              <span class="card-type">竞速赛</span>
+              <div class="card-title">「极速环城」限时计时赛</div>
+              <div class="card-desc">城市环线全程约4.2公里，弯道密集。建议使用高加速车型，前段保留氮气用于最后直道冲刺。</div>
+              <div class="card-tags"><span>竞速赛</span><span>每日挑战任务</span><span>路线规划</span></div>
+              <div class="card-meta"><span class="hot">🔥 热度 9.6</span><span>奖励 ¥800</span></div>
+            </div>
+            <div class="content-card" data-type="生存">
+              <span class="card-type blue">生存赛</span>
+              <div class="card-title">「荒岛求生」耐力生存赛</div>
+              <div class="card-desc">在资源有限的地图中坚持15分钟，击败对手或存活到最后均可获得积分。注意收集补给箱。</div>
+              <div class="card-tags"><span>生存赛</span><span>赛事奖励说明</span><span>耐力挑战</span></div>
+              <div class="card-meta"><span class="hot">🔥 热度 9.2</span><span>奖励 ¥650</span></div>
+            </div>
+            <div class="content-card" data-type="团队">
+              <span class="card-type green">团队赛</span>
+              <div class="card-title">「三排攻防」团队配合赛</div>
+              <div class="card-desc">3人组队占领据点，累计积分最高获胜。分工建议：1人突击、1人支援、1人防守。</div>
+              <div class="card-tags"><span>团队赛</span><span>组队策略</span><span>参赛技巧</span></div>
+              <div class="card-meta"><span class="hot">🔥 热度 8.9</span><span>奖励 ¥600/人</span></div>
+            </div>
+            <div class="content-card" data-type="技巧">
+              <span class="card-type purple">技巧赛</span>
+              <div class="card-title">「精准跳跃」障碍技巧赛</div>
+              <div class="card-desc">连续通过12个移动平台，失误即扣时。推荐轻量角色，起跳节奏比速度更重要。</div>
+              <div class="card-tags"><span>技巧赛</span><span>玩家实测</span><span>操作细节</span></div>
+              <div class="card-meta"><span class="hot">🔥 热度 8.7</span><span>奖励 ¥500</span></div>
+            </div>
+            <div class="content-card" data-type="竞速">
+              <span class="card-type">竞速赛</span>
+              <div class="card-title">「夜间拉力」黑暗竞速赛</div>
+              <div class="card-desc">能见度低，需依赖路书和记忆点。建议提前跑两遍熟悉弯道，灯光调至近光减少眩光。</div>
+              <div class="card-tags"><span>竞速赛</span><span>夜间赛</span><span>路线记忆</span></div>
+              <div class="card-meta"><span class="hot">🔥 热度 8.5</span><span>奖励 ¥700</span></div>
+            </div>
+            <div class="content-card" data-type="生存">
+              <span class="card-type blue">生存赛</span>
+              <div class="card-title">「毒圈缩圈」生存淘汰赛</div>
+              <div class="card-desc">安全区逐轮缩小，前期避战发育，中后期卡圈边推进。药品和护甲优先于弹药。</div>
+              <div class="card-tags"><span>生存赛</span><span>毒圈机制</span><span>比赛规则</span></div>
+              <div class="card-meta"><span class="hot">🔥 热度 8.3</span><span>奖励 ¥550</span></div>
+            </div>
+          </div>
+          <div class="no-result" id="noResult">没有找到匹配的挑战，试试其他关键词或切换筛选。</div>
+        </section>
+
+        <!-- 板块3：最新更新 -->
+        <section class="section-block" id="latest-updates">
+          <div class="section-header">
+            <h2 class="section-title">最新赛况与更新</h2>
+          </div>
+          <div class="update-list">
+            <div class="update-item">
+              <span class="update-num top">1</span>
+              <div class="update-body">
+                <div class="update-name">「极速环城」赛道记录刷新至 2:14.82</div>
+                <div class="update-summary">玩家“弯道不刹车”使用改装跑车跑出今日最快圈速，比昨日纪录快1.3秒。</div>
+              </div>
+              <span class="update-time">10分钟前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num top">2</span>
+              <div class="update-body">
+                <div class="update-name">生存赛奖励池追加 200 份补给包</div>
+                <div class="update-summary">官方调整今日荒岛求生赛奖励结构，前50名额外获得限定补给包。</div>
+              </div>
+              <span class="update-time">32分钟前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num">3</span>
+              <div class="update-body">
+                <div class="update-name">团队赛新增「攻防换边」机制</div>
+                <div class="update-summary">三排攻防赛下半场交换攻守方，平衡先手优势，组队玩家需重新分配角色。</div>
+              </div>
+              <span class="update-time">1小时前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num">4</span>
+              <div class="update-body">
+                <div class="update-name">技巧赛「精准跳跃」平台速度微调</div>
+                <div class="update-summary">第8-10号平台移动速度下调8%，整体通关率预计提升，适合新手尝试。</div>
+              </div>
+              <span class="update-time">2小时前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num">5</span>
+              <div class="update-body">
+                <div class="update-name">夜间拉力赛开放练习模式</div>
+                <div class="update-summary">正式比赛前可无限次练习，不消耗参赛次数，建议提前熟悉路线。</div>
+              </div>
+              <span class="update-time">3小时前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num">6</span>
+              <div class="update-body">
+                <div class="update-name">毒圈缩圈赛药品刷新率调整</div>
+                <div class="update-summary">医疗包刷新概率提升12%，护甲耐久小幅下降，战术重心转向续航。</div>
+              </div>
+              <span class="update-time">4小时前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num">7</span>
+              <div class="update-body">
+                <div class="update-name">每日挑战任务刷新时间确认</div>
+                <div class="update-summary">所有赛事的每日任务统一在凌晨5:00刷新，奖励领取有效期至次日4:59。</div>
+              </div>
+              <span class="update-time">5小时前</span>
+            </div>
+            <div class="update-item">
+              <span class="update-num">8</span>
+              <div class="update-body">
+                <div class="update-name">本周全勤奖励加码：额外宝箱</div>
+                <div class="update-summary">连续7天完成任意每日挑战，可额外获得一个随机宝箱，含限定涂装。</div>
+              </div>
+              <span class="update-time">6小时前</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 板块4：分类入口 -->
+        <section class="section-block" id="categories">
+          <div class="section-header">
+            <h2 class="section-title">按赛事类型浏览</h2>
+          </div>
+          <div class="cat-grid">
+            <a href="/#hot-recommend" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span class="cat-name">竞速赛</span>
+            </a>
+            <a href="/#hot-recommend" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span class="cat-name">生存赛</span>
+            </a>
+            <a href="/#hot-recommend" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              <span class="cat-name">团队赛</span>
+            </a>
+            <a href="/#hot-recommend" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <span class="cat-name">技巧赛</span>
+            </a>
+            <a href="/#news" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="cat-name">比赛规则</span>
+            </a>
+            <a href="/#deep-dive" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span class="cat-name">参赛技巧</span>
+            </a>
+            <a href="/#comments" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span class="cat-name">玩家实测</span>
+            </a>
+            <a href="/#guide" class="cat-item">
+              <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span class="cat-name">参赛指南</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- 板块5：深度解析正文 -->
+        <section class="section-block deep-dive" id="deep-dive">
+          <div class="section-header">
+            <h2 class="section-title">赛事机制与参赛策略解析</h2>
+          </div>
+          <h3>每日挑战任务的类型划分与奖励结构</h3>
+          <p>每日挑战任务按玩法分为竞速、生存、团队和技巧四类。竞速赛以完成时间为排名依据，奖励集中在排名奖，前10名可获得额外加成。生存赛更看重存活时长与淘汰数，参与奖门槛低，适合时间碎片化的玩家。团队赛要求3人组队，奖励按队伍整体排名发放，配合默契度直接影响成绩。</p>
+          <p>奖励池通常由参与奖、排名奖和全勤奖三部分组成。参与奖在完成比赛后立即发放，排名奖根据结算名次浮动，全勤奖需要连续七天完成任意挑战。建议优先完成奖励系数高的场次，例如周末的团队赛奖励池往往比工作日高出约30%。</p>
+          <h3>竞速赛与生存赛的参赛节奏对比</h3>
+          <p>竞速赛节奏紧凑，单场时长通常在3-5分钟，适合连续多场刷取排名。关键在于前两个弯道的起步处理，以及最后直道的氮气释放时机。生存赛单场约12-18分钟，更考验资源管理和路线选择，前期避战、中期控图、后期卡圈是通用思路。</p>
+          <p>如果你在“竞速赛和生存赛哪个收益更高”之间犹豫，可以这样判断：时间充裕且操作稳定时，生存赛的单位时间奖励更高；碎片时间多、喜欢快速反馈时，竞速赛的参与频率更有优势。两种赛事的全勤奖可以叠加计算，不必二选一。</p>
+          <h3>团队赛的组队配置与分工建议</h3>
+          <p>团队赛常见配置为1突击、1支援、1防守。突击位负责打开局面，支援位提供补给和掩护，防守位控制关键据点。开局阶段建议三人同向推进，避免分散被逐个击破。中期根据积分差调整策略，领先时稳守，落后时主动开团。</p>
+          <ul>
+            <li>突击位优先提升移动速度和爆发输出，携带短时增益道具。</li>
+            <li>支援位负责治疗和弹药补给，站位靠后但保持视野覆盖。</li>
+            <li>防守位携带控制类装备，在据点附近布置减速或阻挡。</li>
+          </ul>
+          <h3>技巧赛的操作细节与练习方法</h3>
+          <p>技巧赛的排名差距往往在毫秒之间。以「精准跳跃」为例，起跳时机的判断比移动速度更重要，连续平台的节奏一旦打乱，恢复成本很高。建议在练习模式中关闭计时器，先熟悉每个平台的移动周期，再逐步加入速度要求。</p>
+          <p>玩家实测反馈显示，轻量角色的空中控制更灵活，但落地稳定性稍弱；重量级角色则相反。选择角色时应优先匹配自己的操作习惯，而不是盲目跟随排行榜配置。每日挑战任务中的技巧赛通常有三次免费尝试机会，合理分配比反复重试更有效。</p>
+          <h3>每日刷新时间与奖励领取注意事项</h3>
+          <p>所有每日挑战任务在凌晨5:00统一刷新，前一天的奖励领取截止到次日4:59。如果当天未能完成目标场次，已获得的参与奖不会消失，但排名奖需要手动领取。连续完成挑战的玩家记得在周末检查全勤进度，避免因单日遗漏而中断。</p>
+        </section>
+
+        <!-- 板块6：体验指南 -->
+        <section class="section-block" id="guide">
+          <div class="section-header">
+            <h2 class="section-title">参赛体验指南</h2>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>按类型筛选挑战</h4>
+                <p>左侧筛选栏支持按竞速、生存、团队、技巧四类快速过滤，点击后中栏热门推荐会实时调整，帮助你聚焦目标场次。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>查看奖励与难度标签</h4>
+                <p>每张挑战卡片标注了奖励金额、热度和类型标签。奖励说明板块提供分配逻辑拆解，参赛前建议先确认参与奖与排名奖的差异。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>利用FAQ快速查规则</h4>
+                <p>常见问题覆盖刷新时间、组队人数、生存赛时长等高频疑问，折叠展开即可阅读，无需翻找长篇说明。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>参考玩家实测与资讯</h4>
+                <p>评论区和相关资讯提供不同玩家的实际体验与规则变动提醒，适合在赛前快速了解当天的特殊调整。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <h4>手机端横向导航</h4>
+                <p>在手机上，频道导航转为页头横向滚动菜单，左右侧栏内容依次排列在主内容之后，保持阅读顺序自然。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 板块7：FAQ -->
+        <section class="section-block" id="faq">
+          <div class="section-header">
+            <h2 class="section-title">常见问题解答</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>每日挑战任务每天几点刷新？</summary>
+              <div class="faq-answer">所有每日挑战任务统一在凌晨5:00刷新，前一天的奖励领取截止到次日4:59。建议在刷新前完成当天目标，避免奖励过期。</div>
+            </details>
+            <details>
+              <summary>竞速赛和技巧赛哪个更适合新手？</summary>
+              <div class="faq-answer">技巧赛的容错相对更高，单次尝试时间短，适合熟悉操作。竞速赛对路线记忆和车辆调校要求更高，建议先跑几次练习模式再参赛。</div>
+            </details>
+            <details>
+              <summary>团队赛需要几个人组队？可以单人匹配吗？</summary>
+              <div class="faq-answer">团队赛固定3人一队，支持单人匹配补位，但语音沟通的队伍胜率通常更高。匹配模式下系统会按段位相近原则分配队友。</div>
+            </details>
+            <details>
+              <summary>生存赛一般持续多久？中途退出有奖励吗？</summary>
+              <div class="faq-answer">单场生存赛约12-18分钟，具体取决于存活人数和缩圈速度。中途退出无法获得排名奖，但已完成的击杀和存活时长会计入参与奖。</div>
+            </details>
+            <details>
+              <summary>每日大赛的奖励池是怎么分配的？</summary>
+              <div class="faq-answer">奖励池分为参与奖、排名奖和全勤奖。参与奖完成即得，排名奖按结算名次发放，全勤奖需连续七天完成任意挑战。部分周末场次会额外追加补给包。</div>
+            </details>
+            <details>
+              <summary>夜间竞速赛看不清路怎么办？</summary>
+              <div class="faq-answer">建议将游戏内亮度调至推荐值，关闭动态模糊，优先使用近光灯减少眩光。提前在练习模式中记忆弯道位置和路书提示，比临时反应更有效。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 板块8：用户评论 -->
+        <section class="section-block" id="comments">
+          <div class="section-header">
+            <h2 class="section-title">玩家评价与实测反馈</h2>
+          </div>
+          <div class="comment-grid">
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar">弯</span><span class="comment-name">弯道不刹车</span></div>
+              <div class="comment-text">极速环城今天跑了2:15，比昨天快了1秒多。前两个弯道晚刹车确实能省时间，但第三弯容易推头。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt1">生</span><span class="comment-name">生存专家老李</span></div>
+              <div class="comment-text">荒岛求生赛药品刷新率调高后舒服多了，以前中期没药只能硬苟，现在可以主动打一波。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt2">三</span><span class="comment-name">三排指挥位</span></div>
+              <div class="comment-text">攻防换边之后先手优势没那么大了，我们队现在上半场稳守，下半场靠突击位打开局面，胜率明显提升。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt3">跳</span><span class="comment-name">跳跃苦手</span></div>
+              <div class="comment-text">精准跳跃第8-10号平台速度降了之后终于能过了，之前总是差半个身位。轻量角色确实好控制一些。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt4">夜</span><span class="comment-name">夜跑爱好者</span></div>
+              <div class="comment-text">夜间拉力赛练习模式很实用，跑了五遍才记住所有弯道。正式赛近光灯+关动态模糊，视野清楚很多。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt5">圈</span><span class="comment-name">圈边苟王</span></div>
+              <div class="comment-text">毒圈缩圈赛护甲耐久降了之后，前期打架风险变高，现在更倾向于卡圈边等对手先交火。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar">全</span><span class="comment-name">全勤打工人</span></div>
+              <div class="comment-text"><span class="neutral">中评：</span>全勤奖加宝箱是好事，但每天四场全打完时间有点紧，希望能把参与奖门槛再降一点。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt1">新</span><span class="comment-name">新手小陈</span></div>
+              <div class="comment-text">刚接触每日挑战，按推荐先打技巧赛拿参与奖，再慢慢学竞速路线，节奏比较友好。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt2">团</span><span class="comment-name">团队赛缺一</span></div>
+              <div class="comment-text">匹配补位的队友有时候不沟通，建议系统把语音提示做得更明显一点，不然攻防换边容易脱节。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt3">计</span><span class="comment-name">计时器爱好者</span></div>
+              <div class="comment-text">竞速赛的排名奖差距有点大，第10名和第11名奖励差了一截，冲排名的时候心态容易崩。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt4">路</span><span class="comment-name">路书研究员</span></div>
+              <div class="comment-text">夜间拉力赛如果能把路书提示提前0.5秒显示就更好了，现在有几个急弯提示稍晚。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt5">闲</span><span class="comment-name">休闲玩家阿凯</span></div>
+              <div class="comment-text"><span class="neutral">中评：</span>每天只打一两场的话，排名奖基本拿不到，建议增加按参与次数累计的进度奖励。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar">补</span><span class="comment-name">补给箱猎人</span></div>
+              <div class="comment-text">生存赛补给包追加200份之后，前50名竞争更激烈了，今天差3分没进前50，明天继续。</div>
+            </div>
+            <div class="comment-card">
+              <div class="comment-head"><span class="comment-avatar alt1">技</span><span class="comment-name">技巧赛常客</span></div>
+              <div class="comment-text">精准跳跃三次免费机会用完了就只能等明天，建议把练习模式也开放给技巧赛，方便提前热身。</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 板块9：相关资讯 -->
+        <section class="section-block" id="news">
+          <div class="section-header">
+            <h2 class="section-title">相关资讯与规则更新</h2>
+          </div>
+          <div class="news-list">
+            <div class="news-item">
+              <div class="news-head"><span class="news-date">2026-07-14</span><span class="news-title">每日挑战任务刷新机制说明调整</span></div>
+              <div class="news-summary">官方更新了刷新时间与奖励领取有效期的表述，明确所有场次统一在凌晨5:00重置，全勤计算以完成时间为准。</div>
+            </div>
+            <div class="news-item">
+              <div class="news-head"><span class="news-date">2026-07-13</span><span class="news-title">团队赛匹配机制优化：优先同段位组队</span></div>
+              <div class="news-summary">单人匹配将优先分配段位相近的队友，减少实力差距过大的情况。组队玩家不受影响，仍按队伍平均段位匹配。</div>
+            </div>
+            <div class="news-item">
+              <div class="news-head"><span class="news-date">2026-07-12</span><span class="news-title">生存赛毒圈伤害曲线微调</span></div>
+              <div class="news-summary">后期毒圈伤害小幅提升，缩圈间隔延长5秒，给玩家更多转移时间。药品刷新率保持不变。</div>
+            </div>
+            <div class="news-item">
+              <div class="news-head"><span class="news-date">2026-07-11</span><span class="news-title">竞速赛车辆调校参数开放预览</span></div>
+              <div class="news-summary">参赛前可查看推荐调校参数，包括加速、操控和氮气效率三项指标，帮助新手快速上手。</div>
+            </div>
+            <div class="news-item">
+              <div class="news-head"><span class="news-date">2026-07-10</span><span class="news-title">全勤奖励宝箱内容公示</span></div>
+              <div class="news-summary">本周全勤宝箱包含限定涂装、补给包和随机金币。连续完成七天任意每日挑战即可领取。</div>
+            </div>
+            <div class="news-item">
+              <div class="news-head"><span class="news-date">2026-07-09</span><span class="news-title">技巧赛新增练习模式计时统计</span></div>
+              <div class="news-summary">练习模式现在会记录最佳成绩和平均失误次数，方便玩家对比不同角色的操作差异。</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 板块10：相关推荐 -->
+        <section class="section-block" id="related-recommend">
+          <div class="section-header">
+            <h2 class="section-title">相关推荐与热门搜索</h2>
+          </div>
+          <div class="rec-tags">
+            <a href="/#hot-recommend">每日挑战任务攻略</a>
+            <a href="/#deep-dive">竞速赛路线规划</a>
+            <a href="/#deep-dive">生存赛卡圈技巧</a>
+            <a href="/#deep-dive">团队赛分工配置</a>
+            <a href="/#faq">赛事奖励说明</a>
+            <a href="/#guide">参赛技巧汇总</a>
+            <a href="/#comments">玩家实测反馈</a>
+            <a href="/#news">比赛规则更新</a>
+          </div>
+        </section>
+
+        <!-- 板块11：趋势观察 -->
+        <section class="section-block" id="trend" style="padding:0;border:none;box-shadow:none;background:transparent;">
+          <div class="trend-panel">
+            <div class="trend-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              本周参赛趋势观察
+            </div>
+            <div class="trend-bars">
+              <div class="trend-bar-item">
+                <div class="trend-bar-label"><span>竞速赛参与度</span><span>92%</span></div>
+                <div class="trend-bar-track"><div class="trend-bar-fill" style="width:92%"></div></div>
+              </div>
+              <div class="trend-bar-item">
+                <div class="trend-bar-label"><span>生存赛参与度</span><span>78%</span></div>
+                <div class="trend-bar-track"><div class="trend-bar-fill" style="width:78%"></div></div>
+              </div>
+              <div class="trend-bar-item">
+                <div class="trend-bar-label"><span>团队赛参与度</span><span>65%</span></div>
+                <div class="trend-bar-track"><div class="trend-bar-fill" style="width:65%"></div></div>
+              </div>
+              <div class="trend-bar-item">
+                <div class="trend-bar-label"><span>技巧赛参与度</span><span>71%</span></div>
+                <div class="trend-bar-track"><div class="trend-bar-fill" style="width:71%"></div></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 右栏 -->
+      <aside class="sidebar-right" aria-label="辅助阅读">
+        <div class="side-card">
+          <div class="side-title">页内目录</div>
+          <nav class="toc-list" aria-label="页内目录">
+            <a href="/#intro">关于每日大赛</a>
+            <a href="/#hot-recommend">热门挑战推荐</a>
+            <a href="/#latest-updates">最新赛况</a>
+            <a href="/#categories">赛事类型</a>
+            <a href="/#deep-dive">机制解析</a>
+            <a href="/#guide">参赛指南</a>
+            <a href="/#faq">常见问题</a>
+            <a href="/#comments">玩家评价</a>
+            <a href="/#news">相关资讯</a>
+          </nav>
+        </div>
+        <div class="side-card">
+          <div class="side-title">热门条目</div>
+          <div class="hot-list">
+            <div class="hot-item"><span class="hot-rank top">1</span><span class="hot-text"><strong>极速环城</strong> 赛道纪录刷新</span></div>
+            <div class="hot-item"><span class="hot-rank top">2</span><span class="hot-text"><strong>荒岛求生</strong> 奖励池追加补给包</span></div>
+            <div class="hot-item"><span class="hot-rank top">3</span><span class="hot-text"><strong>三排攻防</strong> 换边机制上线</span></div>
+            <div class="hot-item"><span class="hot-rank">4</span><span class="hot-text"><strong>精准跳跃</strong> 平台速度调整</span></div>
+            <div class="hot-item"><span class="hot-rank">5</span><span class="hot-text"><strong>夜间拉力</strong> 练习模式开放</span></div>
+            <div class="hot-item"><span class="hot-rank">6</span><span class="hot-text"><strong>毒圈缩圈</strong> 药品刷新率提升</span></div>
+            <div class="hot-item"><span class="hot-rank">7</span><span class="hot-text"><strong>全勤奖励</strong> 本周加码宝箱</span></div>
+          </div>
+        </div>
+        <div class="side-card">
+          <div class="side-title">延伸阅读</div>
+          <div class="toc-list">
+            <a href="/#deep-dive">竞速赛起步与氮气时机</a>
+            <a href="/#deep-dive">生存赛中期资源管理</a>
+            <a href="/#deep-dive">团队赛攻防换位思路</a>
+            <a href="/#faq">每日任务刷新规则</a>
+            <a href="/#news">本周规则变动汇总</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-name">r星每日大赛</span>
+          <p>聚焦每日挑战任务、赛事奖励说明与参赛技巧的玩家信息门户。提供竞速、生存、团队、技巧四类赛事的规则解读与实测反馈。</p>
+        </div>
+        <div class="footer-col">
+          <h4>赛事频道</h4>
+          <a href="/#hot-recommend">热门挑战</a>
+          <a href="/#latest-updates">最新赛况</a>
+          <a href="/#categories">类型导航</a>
+          <a href="/#deep-dive">机制解析</a>
+        </div>
+        <div class="footer-col">
+          <h4>参赛帮助</h4>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#comments">玩家评价</a>
+          <a href="/#news">规则资讯</a>
+        </div>
+        <div class="footer-col">
+          <h4>热门搜索</h4>
+          <a href="/#hot-recommend">每日挑战任务</a>
+          <a href="/#deep-dive">参赛技巧</a>
+          <a href="/#faq">赛事奖励说明</a>
+          <a href="/#comments">玩家实测</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 r星每日大赛 · 内容仅供玩家参考</span>
+        <span>部分内容为示例数据，仅用于展示页面结构</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const searchInput = document.getElementById('searchInput');
+      const searchClear = document.getElementById('searchClear');
+      const cards = document.querySelectorAll('#hotCardGrid .content-card');
+      const noResult = document.getElementById('noResult');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+
+      let currentFilter = 'all';
+      let currentSearch = '';
+
+      function applyFilters() {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const type = card.getAttribute('data-type') || '';
+          const text = card.textContent.toLowerCase();
+          const matchFilter = currentFilter === 'all' || type === currentFilter;
+          const matchSearch = currentSearch === '' || text.includes(currentSearch);
+          if (matchFilter && matchSearch) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        noResult.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentSearch = this.value.trim().toLowerCase();
+          searchClear.style.display = this.value ? 'flex' : 'none';
+          applyFilters();
+        });
+      }
+      if (searchClear) {
+        searchClear.addEventListener('click', function() {
+          searchInput.value = '';
+          currentSearch = '';
+          this.style.display = 'none';
+          applyFilters();
+          searchInput.focus();
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentFilter = this.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+    })();
+  </script>
+</body>
+  </html>
