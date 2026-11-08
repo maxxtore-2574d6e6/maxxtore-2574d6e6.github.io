@@ -1,0 +1,1312 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>樱花动漫专注动漫的网站专注动漫的门户-新番追更_经典补番_类型筛选</title>
+  <meta name="description" content="樱花动漫专注动漫的网站专注动漫的门户，提供新番追更表、经典补番路线、类型筛选与社区评论。适合想按季度追更、补完经典或寻找同类推荐的老少动漫爱好者。">
+  <meta name="keywords" content="新番时间表,动漫类型筛选,经典补番路线,季度追更,动漫社区评论">
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+  <style>
+    :root {
+      --sakura-pink: #fce7f3;
+      --sakura-deep: #db2777;
+      --sakura-light: #fdf2f8;
+      --text-dark: #1f2937;
+      --text-soft: #4b5563;
+      --text-muted: #6b7280;
+      --border-light: #f3d9e4;
+      --panel-bg: #ffffff;
+      --bg-page: #fcf9fa;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(219, 39, 119, 0.08);
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --sticky-offset: 96px;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-page);
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-size: 16px;
+      padding-top: 96px; /* 公告条40 + 页头56 */
+    }
+
+    /* 吸顶公告条 + 页头 */
+    .sticky-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--panel-bg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .announce-bar {
+      background: linear-gradient(90deg, #fbcfe8, #fce7f3);
+      color: #831843;
+      font-size: 14px;
+      padding: 10px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .announce-bar .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .announce-bar strong {
+      font-weight: 600;
+    }
+
+    .header {
+      background: var(--panel-bg);
+      border-bottom: 1px solid var(--border-light);
+      padding: 10px 0;
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--sakura-deep);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: var(--text-soft);
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .main-nav a:hover {
+      color: var(--sakura-deep);
+      border-bottom-color: var(--sakura-deep);
+    }
+
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(135deg, #fdf2f8 0%, #fff1f2 100%);
+      border-radius: var(--radius-lg);
+      margin: 24px 0 32px;
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+    }
+
+    .hero-content {
+      flex: 1 1 55%;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #831843;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-soft);
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--sakura-deep);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #be185d;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--sakura-deep);
+      border: 1.5px solid var(--sakura-deep);
+      padding: 9px 22px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--sakura-pink);
+    }
+
+    .hero-visual {
+      flex: 0 0 280px;
+      height: 180px;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* 三栏布局 */
+    .three-col {
+      display: grid;
+      grid-template-columns: 180px 1fr 240px;
+      gap: 28px;
+      margin: 32px 0 48px;
+    }
+
+    /* 左栏 */
+    .left-sidebar {
+      font-size: 14px;
+    }
+
+    .sidebar-section {
+      background: var(--panel-bg);
+      border-radius: var(--radius-md);
+      padding: 18px 14px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #831843;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--sakura-pink);
+    }
+
+    .channel-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .channel-list a {
+      text-decoration: none;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: background 0.2s;
+      font-weight: 500;
+    }
+
+    .channel-list a:hover {
+      background: var(--sakura-light);
+      color: var(--sakura-deep);
+    }
+
+    .channel-list .active {
+      background: var(--sakura-pink);
+      color: var(--sakura-deep);
+      font-weight: 600;
+    }
+
+    /* 中栏 */
+    .main-content {
+      min-width: 0;
+    }
+
+    .content-section {
+      background: var(--panel-bg);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #831843;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-header h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--sakura-deep);
+      border-radius: 4px;
+    }
+
+    .more-link {
+      font-size: 14px;
+      color: var(--sakura-deep);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .more-link:hover {
+      text-decoration: underline;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .content-card {
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 14px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
+    }
+
+    .content-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      background: var(--sakura-light);
+      color: var(--sakura-deep);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* 紧凑列表 */
+    .compact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .compact-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .compact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-index {
+      font-size: 14px;
+      font-weight: 700;
+      color: #d1d5db;
+      min-width: 24px;
+    }
+
+    .item-content {
+      flex: 1;
+    }
+
+    .item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .item-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .item-title a:hover {
+      color: var(--sakura-deep);
+    }
+
+    .item-summary {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .category-item {
+      background: var(--sakura-light);
+      border-radius: 8px;
+      padding: 14px 10px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #831843;
+      text-decoration: none;
+      transition: background 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .category-item:hover {
+      background: var(--sakura-pink);
+      border-color: var(--sakura-deep);
+    }
+
+    /* 深度解析 */
+    .deep-dive h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #831843;
+      margin: 20px 0 10px;
+    }
+
+    .deep-dive h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .deep-dive p {
+      font-size: 15px;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .deep-dive ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .deep-dive li {
+      font-size: 15px;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    /* FAQ */
+    details {
+      border-bottom: 1px solid #f3f4f6;
+      padding: 10px 0;
+    }
+
+    details:last-child {
+      border-bottom: none;
+    }
+
+    summary {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--sakura-deep);
+      font-weight: 400;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    details p {
+      font-size: 14px;
+      color: var(--text-muted);
+      padding: 10px 0 4px;
+      line-height: 1.6;
+    }
+
+    /* 用户评论 */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .comment-item {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--sakura-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--sakura-deep);
+      flex-shrink: 0;
+    }
+
+    .comment-body {
+      flex: 1;
+    }
+
+    .comment-user {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 2px;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .comment-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* 相关资讯 */
+    .news-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .news-item {
+      padding-bottom: 16px;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .news-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .news-title a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .news-title a:hover {
+      color: var(--sakura-deep);
+    }
+
+    .news-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 右栏 */
+    .right-sidebar {
+      font-size: 14px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toc-list a {
+      text-decoration: none;
+      color: var(--text-soft);
+      display: block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .toc-list a:hover {
+      background: var(--sakura-light);
+      color: var(--sakura-deep);
+    }
+
+    .hot-item {
+      display: flex;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f9fafb;
+      font-size: 13px;
+    }
+
+    .hot-item:last-child {
+      border-bottom: none;
+    }
+
+    .hot-rank {
+      font-weight: 700;
+      color: #d1d5db;
+      min-width: 18px;
+    }
+
+    .hot-title {
+      color: var(--text-soft);
+      text-decoration: none;
+    }
+
+    .hot-title:hover {
+      color: var(--sakura-deep);
+    }
+
+    /* 趋势观察 */
+    .trend-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .trend-timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--sakura-pink);
+    }
+
+    .trend-item {
+      position: relative;
+    }
+
+    .trend-item::before {
+      content: '';
+      position: absolute;
+      left: -18px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sakura-deep);
+    }
+
+    .trend-date {
+      font-size: 12px;
+      color: var(--sakura-deep);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .trend-text {
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    /* 页尾 */
+    .footer {
+      background: #1f2937;
+      color: #d1d5db;
+      padding: 40px 0 24px;
+      margin-top: 40px;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      max-width: 280px;
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fbcfe8;
+      margin-bottom: 8px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-col a:hover {
+      color: #fbcfe8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      padding-top: 18px;
+      font-size: 12px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 移动端 */
+    @media (max-width: 1024px) {
+      .three-col {
+        grid-template-columns: 1fr;
+      }
+      .left-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .sidebar-section {
+        flex: 1 1 200px;
+      }
+      .right-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .right-sidebar .sidebar-section {
+        flex: 1 1 220px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-top: 100px;
+      }
+      .sticky-wrap .main-nav {
+        display: none;
+      }
+      .hero {
+        flex-direction: column;
+        padding: 24px 20px;
+      }
+      .hero h1 {
+        font-size: 24px;
+      }
+      .hero-visual {
+        flex: 0 0 140px;
+        width: 100%;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        flex-direction: column;
+      }
+      .footer-links {
+        gap: 24px;
+      }
+      .mobile-channels {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 14px;
+      }
+      .hero h1 {
+        font-size: 22px;
+      }
+    }
+
+    /* 滚动偏移 */
+    section[id] {
+      scroll-margin-top: var(--sticky-offset);
+    }
+
+    /* 视觉装饰 */
+    .hero-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 吸顶公告条 + 页头 -->
+<div class="sticky-wrap">
+  <div class="announce-bar">
+    <div class="container">
+      <span>🌸 春季新番专题上线</span>
+      <strong>「花咲くいろは」十周年纪念展</strong>
+      <span>专题页已开放 · 参与评论赢限定周边</span>
+    </div>
+  </div>
+  <header class="header">
+    <div class="container">
+      <div class="logo-area">
+        <span class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+            <path d="M10 20 Q16 8 22 20" stroke="#db2777" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <circle cx="16" cy="14" r="2.5" fill="#db2777"/>
+            <circle cx="12" cy="22" r="1.5" fill="#f472b6"/>
+            <circle cx="20" cy="22" r="1.5" fill="#f472b6"/>
+          </svg>
+        </span>
+        <span class="logo-text">樱花动漫专注动漫的网站专注动漫的门户</span>
+      </div>
+      <nav class="main-nav">
+        <a href="/#new-season">新番</a>
+        <a href="/#classic">经典补番</a>
+        <a href="/#category">类型</a>
+        <a href="/#community">社区</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<div class="container">
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>樱花动漫专注动漫的网站专注动漫的门户</h1>
+      <p class="hero-desc">新番追更表 · 经典补番路线 · 类型筛选 · 社区评论。每日整理放送时间与口碑条目，按季度归档，适合通勤追更与周末补番。</p>
+      <div class="hero-actions">
+        <a href="/#new-season" class="btn-primary">查看新番时间表</a>
+        <a href="/#classic" class="btn-outline">补番路线推荐</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-svg" viewBox="0 0 280 180" fill="none">
+        <rect x="20" y="30" width="120" height="80" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+        <rect x="50" y="50" width="120" height="80" rx="8" fill="white" stroke="#db2777" stroke-width="1.5"/>
+        <circle cx="90" cy="80" r="12" fill="#fbcfe8"/>
+        <path d="M130 100 L150 70 L170 100" stroke="#db2777" stroke-width="2" fill="none"/>
+        <rect x="180" y="60" width="80" height="60" rx="6" fill="#fdf2f8" stroke="#f472b6" stroke-width="1"/>
+        <path d="M200 90 Q220 70 240 90" stroke="#db2777" stroke-width="1.5" fill="none"/>
+        <circle cx="220" cy="78" r="4" fill="#db2777"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 三栏主内容区 -->
+  <div class="three-col">
+    <!-- 左栏：频道导航 + 分类筛选 -->
+    <aside class="left-sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">频道导航</h3>
+        <ul class="channel-list">
+          <li><a href="/#new-season" class="active">📺 新番追更表</a></li>
+          <li><a href="/#classic">📀 经典补番路线</a></li>
+          <li><a href="/#category">🏷️ 类型筛选</a></li>
+          <li><a href="/#deep-dive">📝 深度解析</a></li>
+          <li><a href="/#faq">❓ 常见问题</a></li>
+          <li><a href="/#community">💬 社区评论</a></li>
+          <li><a href="/#news">📰 相关资讯</a></li>
+          <li><a href="/#trend">📈 趋势观察</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">按类型筛选</h3>
+        <ul class="channel-list">
+          <li><a href="/#category">校园日常</a></li>
+          <li><a href="/#category">奇幻冒险</a></li>
+          <li><a href="/#category">悬疑推理</a></li>
+          <li><a href="/#category">运动热血</a></li>
+          <li><a href="/#category">治愈美食</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- 中栏：主内容 -->
+    <main class="main-content">
+      <!-- 1. 内容简介 -->
+      <section class="content-section" id="intro">
+        <div class="section-header">
+          <h2>关于这个动漫门户</h2>
+        </div>
+        <p style="font-size:15px;color:var(--text-soft);margin-bottom:12px;line-height:1.7;">
+          <strong>樱花动漫专注动漫的网站专注动漫的门户</strong>是一个面向动漫爱好者的内容聚合页面。这里不提供在线播放，而是整理新番放送时间、经典补番路线、类型筛选入口与社区短评，帮助你在通勤前快速决定看什么、周末补什么。页面按季度和类型组织内容，所有条目附带标签与看点摘要，方便按“校园日常”“奇幻冒险”等方向定位。
+        </p>
+        <p style="font-size:15px;color:var(--text-soft);margin-bottom:12px;line-height:1.7;">
+          对于追更用户，新番时间表按星期排列，标注放送平台与集数进度；对于补番用户，经典路线按主题成组推荐，从 12 集短篇到年番长篇都有覆盖。类型筛选区把“悬疑推理”“运动热血”“治愈美食”等常见分类做成快捷入口，点击即可跳转到对应卡片。社区评论模块展示来自示例用户的真实语气反馈，可帮助你判断条目是否合口味。
+        </p>
+        <p style="font-size:15px;color:var(--text-soft);line-height:1.7;">
+          如果你在犹豫“某部新番和另一部经典哪个更值得先看”，深度解析与 FAQ 提供了对比视角；如果你想知道“这部番一般多久更新一次”，新番时间表与问答区也有说明。页面适配手机，侧栏在窄屏下折叠到主内容之后，阅读顺序保持一致。
+        </p>
+      </section>
+
+      <!-- 2. 热门内容推荐 -->
+      <section class="content-section" id="popular">
+        <div class="section-header">
+          <h2>本季热门新番推荐</h2>
+          <a href="/#new-season" class="more-link">查看完整时间表 →</a>
+        </div>
+        <div class="card-grid">
+          <div class="content-card">
+            <div class="card-title">《花咲くいろは》十周年重制版</div>
+            <div class="card-tags"><span class="tag">治愈美食</span><span class="tag">青春群像</span><span class="tag">周末补番</span></div>
+            <div class="card-desc">经典温泉旅馆题材高清重制，适合喜欢慢节奏日常与美食画面的观众。</div>
+            <div class="card-meta"><span>热度 9.2w</span><span>评分 8.9</span></div>
+          </div>
+          <div class="content-card">
+            <div class="card-title">《迷宫饭》第二季</div>
+            <div class="card-tags"><span class="tag">奇幻冒险</span><span class="tag">美食</span><span class="tag">通勤追更</span></div>
+            <div class="card-desc">地下城美食冒险续作，每集一道魔物料理，节奏轻松适合下饭。</div>
+            <div class="card-meta"><span>热度 12.4w</span><span>评分 9.1</span></div>
+          </div>
+          <div class="content-card">
+            <div class="card-title">《药屋少女的呢喃》</div>
+            <div class="card-tags"><span class="tag">悬疑推理</span><span class="tag">宫廷</span><span class="tag">已完结</span></div>
+            <div class="card-desc">后宫推理题材，女主角以药师身份破解谜案，适合喜欢单元剧的观众。</div>
+            <div class="card-meta"><span>热度 15.8w</span><span>评分 9.3</span></div>
+          </div>
+          <div class="content-card">
+            <div class="card-title">《排球少年!! 垃圾场决战》</div>
+            <div class="card-tags"><span class="tag">运动热血</span><span class="tag">剧场版</span><span class="tag">经典补番</span></div>
+            <div class="card-desc">乌野对音驹的剧场版对决，节奏紧凑，适合补完 TV 版后观看。</div>
+            <div class="card-meta"><span>热度 18.2w</span><span>评分 9.4</span></div>
+          </div>
+          <div class="content-card">
+            <div class="card-title">《葬送的芙莉莲》</div>
+            <div class="card-tags"><span class="tag">奇幻冒险</span><span class="tag">公路片</span><span class="tag">深夜看</span></div>
+            <div class="card-desc">后日谈式冒险，节奏舒缓情感细腻，适合安静时慢慢品味。</div>
+            <div class="card-meta"><span>热度 20.1w</span><span>评分 9.5</span></div>
+          </div>
+          <div class="content-card">
+            <div class="card-title">《间谍过家家》第三季</div>
+            <div class="card-tags"><span class="tag">校园日常</span><span class="tag">喜剧</span><span class="tag">合家欢</span></div>
+            <div class="card-desc">阿尼亚校园生活继续，短篇喜剧结构，适合碎片时间观看。</div>
+            <div class="card-meta"><span>热度 16.7w</span><span>评分 8.8</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 / 热播动态 -->
+      <section class="content-section" id="new-season">
+        <div class="section-header">
+          <h2>新番更新时间表（按星期）</h2>
+        </div>
+        <ul class="compact-list">
+          <li class="compact-item"><span class="item-index">01</span><div class="item-content"><div class="item-title">周一 · 《花咲くいろは》重制版 第3话</div><div class="item-summary">温泉旅馆新人欢迎会，美食画面与人物关系推进。</div></div></li>
+          <li class="compact-item"><span class="item-index">02</span><div class="item-content"><div class="item-title">周二 · 《迷宫饭》第二季 第6话</div><div class="item-summary">新魔物食材登场，队伍配合与料理步骤同步展开。</div></div></li>
+          <li class="compact-item"><span class="item-index">03</span><div class="item-content"><div class="item-title">周三 · 《药屋少女的呢喃》第18话</div><div class="item-summary">壬氏与猫猫的推理线收束，宫廷谜案揭开新线索。</div></div></li>
+          <li class="compact-item"><span class="item-index">04</span><div class="item-content"><div class="item-title">周四 · 《排球少年!!》剧场版幕后花絮</div><div class="item-summary">制作组访谈与作画分镜公开，补番前可先看。</div></div></li>
+          <li class="compact-item"><span class="item-index">05</span><div class="item-content"><div class="item-title">周五 · 《葬送的芙莉莲》第24话</div><div class="item-summary">旅途中的小故事合集，节奏平缓适合睡前看。</div></div></li>
+          <li class="compact-item"><span class="item-index">06</span><div class="item-content"><div class="item-title">周六 · 《间谍过家家》第三季 第9话</div><div class="item-summary">阿尼亚校园开放日，黄昏与约尔暗中执行任务。</div></div></li>
+          <li class="compact-item"><span class="item-index">07</span><div class="item-content"><div class="item-title">周日 · 《摇曳露营》特别篇</div><div class="item-summary">冬季露营美食特辑，适合治愈美食爱好者。</div></div></li>
+        </ul>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="content-section" id="category">
+        <div class="section-header">
+          <h2>按类型找动漫</h2>
+        </div>
+        <div class="category-grid">
+          <a href="/#popular" class="category-item">校园日常</a>
+          <a href="/#popular" class="category-item">奇幻冒险</a>
+          <a href="/#popular" class="category-item">悬疑推理</a>
+          <a href="/#popular" class="category-item">运动热血</a>
+          <a href="/#popular" class="category-item">治愈美食</a>
+          <a href="/#popular" class="category-item">科幻机甲</a>
+          <a href="/#popular" class="category-item">恋爱喜剧</a>
+          <a href="/#popular" class="category-item">历史传记</a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析正文 -->
+      <section class="content-section deep-dive" id="deep-dive">
+        <div class="section-header">
+          <h2>深度解析：新番追更与经典补番怎么选</h2>
+        </div>
+        <h3>按季度追更的节奏把握</h3>
+        <p>新番通常以 12 集或 24 集为一季，每周固定时间更新。对于通勤追更的用户，选择 12 集短篇更容易在季度内看完；如果喜欢沉浸式长线故事，可以关注 24 集半年番。樱花动漫专注动漫的网站专注动漫的门户把放送时间按星期排列，方便你规划每天看什么。</p>
+        <p>追更时建议先看前 3 集判断是否合口味，再决定是否加入收藏。部分平台提供追更提醒，本页只做时间表整理，不绑定账号。</p>
+        <h3>经典补番路线的组织方式</h3>
+        <p>经典补番通常按主题成组，比如“治愈美食三连”“运动热血入门”“悬疑推理短篇”。优先选择已经完结的作品，可以避免等待更新。12 集短篇适合周末集中观看，年番长篇则适合分阶段补完。</p>
+        <ul>
+          <li>治愈美食方向：从《花咲くいろは》《摇曳露营》开始，节奏慢、画面舒适。</li>
+          <li>运动热血方向：《排球少年!!》系列按季度顺序观看，剧场版放在合适节点。</li>
+          <li>悬疑推理方向：《药屋少女的呢喃》单元剧结构，适合每天一集。</li>
+        </ul>
+        <h3>类型筛选与比较视角</h3>
+        <p>如果你在“校园日常”和“奇幻冒险”之间犹豫，可以先看两边的卡片标签与看点摘要。校园日常偏向轻松短篇，适合碎片时间；奇幻冒险通常有世界观铺陈，适合连续观看。本页的分类入口把常见类型做成快捷筛选项，点击后跳转到对应推荐区。</p>
+        <p>对于“这部番和那部番哪个更值得先看”这类比较需求，FAQ 区整理了更新节奏、集数长度和观看门槛三个维度的问答，可以作为选择依据。</p>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="content-section" id="guide">
+        <div class="section-header">
+          <h2>使用指南</h2>
+        </div>
+        <p style="font-size:15px;color:var(--text-soft);margin-bottom:12px;line-height:1.7;">页面顶部公告条显示专题与活动信息，页头导航可直接跳转新番、经典补番、类型和社区。左栏频道导航列出主要栏目，分类筛选区提供快捷类型入口。中栏按板块组织内容，每块解决不同需求：热门推荐用于快速浏览，时间表用于追更规划，深度解析用于比较选择。</p>
+        <p style="font-size:15px;color:var(--text-soft);line-height:1.7;">手机端左栏和右栏会自动折叠到主内容之后，阅读顺序与桌面一致。右栏页内目录可跳转到具体板块，热门条目与延伸阅读提供额外入口。所有锚点跳转已预留吸顶高度，不会遮挡标题。</p>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="content-section" id="faq">
+        <div class="section-header">
+          <h2>常见问题</h2>
+        </div>
+        <details>
+          <summary>樱花动漫专注动漫的网站专注动漫的门户是新番类型适合什么人看？</summary>
+          <p>适合想按季度追更、需要放送时间表的学生或上班族。喜欢短篇、能接受每周等待更新的观众更容易适应。</p>
+        </details>
+        <details>
+          <summary>经典补番路线一般多久更新一次？</summary>
+          <p>补番路线按主题整理，不涉及更新频率。推荐条目以已完结作品为主，可以一次性规划观看顺序。</p>
+        </details>
+        <details>
+          <summary>悬疑推理类有哪些值得先看的？</summary>
+          <p>本页推荐《药屋少女的呢喃》，单元剧结构、每集一个谜案，适合每天看一集。同类可关注奇幻冒险标签下的其他条目。</p>
+        </details>
+        <details>
+          <summary>治愈美食和运动热血哪个更适合通勤看？</summary>
+          <p>通勤时间短选治愈美食，单集独立、节奏舒缓；运动热血需要连续情绪积累，更适合周末集中看。</p>
+        </details>
+        <details>
+          <summary>这部番完结了吗，在哪可以看？</summary>
+          <p>本页只做条目整理与时间表，不提供在线播放地址。完结状态在卡片标签中标注，观看平台请参考官方信息。</p>
+        </details>
+        <details>
+          <summary>和另一部番比哪个更值得先看？</summary>
+          <p>可以从集数长度、更新节奏和类型偏好三个角度比较。短篇优先、已完结优先，再用标签判断类型是否符合口味。</p>
+        </details>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="content-section" id="community">
+        <div class="section-header">
+          <h2>社区评论</h2>
+        </div>
+        <div class="comment-list">
+          <div class="comment-item"><div class="avatar">桜</div><div class="comment-body"><div class="comment-user">桜饼</div><div class="comment-text">时间表整理得很清楚，周一和周三的番正好下饭。</div><div class="comment-meta">2小时前</div></div></div>
+          <div class="comment-item"><div class="avatar">迷</div><div class="comment-body"><div class="comment-user">迷宫饭团</div><div class="comment-text">《迷宫饭》第二季料理画面比第一季更细，适合吃饭时看。</div><div class="comment-meta">4小时前</div></div></div>
+          <div class="comment-item"><div class="avatar">药</div><div class="comment-body"><div class="comment-user">药屋常客</div><div class="comment-text">悬疑推理标签点进来找到《药屋少女》，单元剧确实好追。</div><div class="comment-meta">6小时前</div></div></div>
+          <div class="comment-item"><div class="avatar">排</div><div class="comment-body"><div class="comment-user">排球少年粉</div><div class="comment-text">剧场版放在补番路线里很合理，先看 TV 再看剧场版体验更好。</div><div class="comment-meta">8小时前</div></div></div>
+          <div class="comment-item"><div class="avatar">芙</div><div class="comment-body"><div class="comment-user">芙莉莲旅人</div><div class="comment-text">深夜看标签很准，芙莉莲节奏慢但是后劲大。</div><div class="comment-meta">10小时前</div></div></div>
+          <div class="comment-item"><div class="avatar">阿</div><div class="comment-body"><div class="comment-user">阿尼亚同学</div><div class="comment-text">间谍过家家第三季还是合家欢风格，碎片时间看刚好。</div><div class="comment-meta">12小时前</div></div></div>
+          <div class="comment-item"><div class="avatar">摇</div><div class="comment-body"><div class="comment-user">摇曳露营者</div><div class="comment-text">特别篇美食特辑不错，治愈美食分类可以再多几部。</div><div class="comment-meta">1天前</div></div></div>
+          <div class="comment-item"><div class="avatar">花</div><div class="comment-body"><div class="comment-user">花开伊吕波</div><div class="comment-text">十周年重制版画质提升明显，剧情还是当年的味道。</div><div class="comment-meta">1天前</div></div></div>
+          <div class="comment-item"><div class="avatar">路</div><div class="comment-body"><div class="comment-user">路过的补番人</div><div class="comment-text">分类入口如果能再细一点就好了，比如按年份筛选。</div><div class="comment-meta">2天前</div></div></div>
+          <div class="comment-item"><div class="avatar">追</div><div class="comment-body"><div class="comment-user">追更小能手</div><div class="comment-text">周日特别篇和周六间谍过家家连着看，周末很满足。</div><div class="comment-meta">2天前</div></div></div>
+          <div class="comment-item"><div class="avatar">推</div><div class="comment-body"><div class="comment-user">推理迷</div><div class="comment-text">药屋少女的推理线不算复杂，但人物关系写得舒服。</div><div class="comment-meta">3天前</div></div></div>
+          <div class="comment-item"><div class="avatar">热</div><div class="comment-body"><div class="comment-user">热血排球</div><div class="comment-text">运动热血分类里排球少年是必看，垃圾场决战作画很稳。</div><div class="comment-meta">3天前</div></div></div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="content-section" id="news">
+        <div class="section-header">
+          <h2>相关资讯</h2>
+        </div>
+        <ul class="news-list">
+          <li class="news-item"><div class="news-title"><a href="/#news">《花咲くいろは》十周年纪念展公布新视觉图</a></div><div class="news-date">2025-03-18</div><div class="news-summary">展览将展出原画与设定资料，现场限定周边同步公开。</div></li>
+          <li class="news-item"><div class="news-title"><a href="/#news">《迷宫饭》第二季追加声优阵容</a></div><div class="news-date">2025-03-15</div><div class="news-summary">新角色加入队伍，料理冒险继续深入地下城。</div></li>
+          <li class="news-item"><div class="news-title"><a href="/#news">《药屋少女的呢喃》宣布推出特别篇</a></div><div class="news-date">2025-03-12</div><div class="news-summary">以猫猫的视角展开全新案件，播出时间待定。</div></li>
+          <li class="news-item"><div class="news-title"><a href="/#news">《排球少年!!》剧场版票房突破新纪录</a></div><div class="news-date">2025-03-10</div><div class="news-summary">垃圾场决战累计观影人次创新高，应援场追加。</div></li>
+          <li class="news-item"><div class="news-title"><a href="/#news">《葬送的芙莉莲》原声带第二弹发售</a></div><div class="news-date">2025-03-08</div><div class="news-summary">收录旅途篇新增配乐，附赠特别广播剧。</div></li>
+          <li class="news-item"><div class="news-title"><a href="/#news">《间谍过家家》第三季进入校园篇高潮</a></div><div class="news-date">2025-03-05</div><div class="news-summary">阿尼亚与次子的互动成为本季讨论热点。</div></li>
+        </ul>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="content-section" id="related">
+        <div class="section-header">
+          <h2>相关推荐</h2>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">校园日常完结番</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">奇幻冒险长线补番</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">悬疑推理单元剧</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">运动热血剧场版</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">治愈美食睡前看</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">通勤追更短篇</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">已完结口碑番</a>
+          <a href="/#popular" class="tag" style="padding:6px 14px;font-size:13px;text-decoration:none;">合家欢喜剧</a>
+        </div>
+      </section>
+
+      <!-- 11. 趋势观察 -->
+      <section class="content-section" id="trend">
+        <div class="section-header">
+          <h2>趋势观察</h2>
+        </div>
+        <div class="trend-timeline">
+          <div class="trend-item"><div class="trend-date">2025-03-01</div><div class="trend-text">治愈美食类新番讨论度上升，慢节奏日常成为周末补番首选。</div></div>
+          <div class="trend-item"><div class="trend-date">2025-03-08</div><div class="trend-text">经典重制作品关注度走高，十周年纪念企划带动老番回看。</div></div>
+          <div class="trend-item"><div class="trend-date">2025-03-15</div><div class="trend-text">运动热血剧场版带动 TV 版补番量，短篇集中观看趋势明显。</div></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 右栏 -->
+    <aside class="right-sidebar">
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">页内目录</h3>
+        <ul class="toc-list">
+          <li><a href="/#intro">关于这个门户</a></li>
+          <li><a href="/#popular">热门新番推荐</a></li>
+          <li><a href="/#new-season">新番时间表</a></li>
+          <li><a href="/#category">类型筛选</a></li>
+          <li><a href="/#deep-dive">深度解析</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#community">社区评论</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">热门条目</h3>
+        <div class="hot-item"><span class="hot-rank">1</span><a href="/#popular" class="hot-title">《葬送的芙莉莲》</a></div>
+        <div class="hot-item"><span class="hot-rank">2</span><a href="/#popular" class="hot-title">《药屋少女的呢喃》</a></div>
+        <div class="hot-item"><span class="hot-rank">3</span><a href="/#popular" class="hot-title">《排球少年!!》剧场版</a></div>
+        <div class="hot-item"><span class="hot-rank">4</span><a href="/#popular" class="hot-title">《迷宫饭》第二季</a></div>
+        <div class="hot-item"><span class="hot-rank">5</span><a href="/#popular" class="hot-title">《间谍过家家》第三季</a></div>
+      </div>
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">延伸阅读</h3>
+        <ul class="toc-list">
+          <li><a href="/#deep-dive">新番追更与补番顺序</a></li>
+          <li><a href="/#guide">手机端使用说明</a></li>
+          <li><a href="/#news">近期动画资讯</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">樱花动漫专注动漫的网站专注动漫的门户</div>
+          <div class="footer-desc">整理新番时间表、经典补番路线与类型筛选，服务通勤追更与周末补番的动漫爱好者。</div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>频道</h4>
+            <ul>
+              <li><a href="/#new-season">新番追更表</a></li>
+              <li><a href="/#classic">经典补番路线</a></li>
+              <li><a href="/#category">类型筛选</a></li>
+              <li><a href="/#community">社区评论</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>内容</h4>
+            <ul>
+              <li><a href="/#deep-dive">深度解析</a></li>
+              <li><a href="/#faq">常见问题</a></li>
+              <li><a href="/#news">相关资讯</a></li>
+              <li><a href="/#trend">趋势观察</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>关于</h4>
+            <ul>
+              <li><a href="/#intro">门户简介</a></li>
+              <li><a href="/#guide">使用指南</a></li>
+              <li><a href="/#popular">热门推荐</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 樱花动漫专注动漫的网站专注动漫的门户 · 内容示例页面</span>
+        <span>部分内容为示例数据，仅用于展示页面结构</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+  </html>
